@@ -24,8 +24,7 @@ class ViewController: UIViewController {
             .bind(to: viewModel.text)
             .disposed(by: disposeBag)
         
-        viewModel.string.drive { string in
-        }
+        viewModel.string.drive(label.rx.text).disposed(by: disposeBag)
     }
 }
 

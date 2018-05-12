@@ -26,5 +26,36 @@ class ViewController: UIViewController {
         
         viewModel.string.drive(label.rx.text).disposed(by: disposeBag)
     }
+
+    func fetchEvents(repo: String) {
+        let reponse = Observable.of(repo)
+            .map { urlString -> URL in
+                return URL(string: "https://www.hoge.com/\(urlString)")!
+            }
+            .map { url -> URLRequest in
+                return URLRequest(url: url)
+            }
+            .flatMap { request in
+                
+                return URLSession.shared.rx.response(request: request)
+            }
+            .share(replay: 1, scope: .whileConnected)
+        reponse.filter { reponse, _ in
+            return 200...300 ~= reponse.statusCode
+            }.map { _, data -> [[String: Any]] in
+                guard
+                    let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
+                    let result = jsonObject as? [[String: Any]] else {
+                        return []
+                }
+                return result
+            }.filter { object in
+                return object.count > 0
+            }.map { object in
+                return object.compactMap(Event.init)
+            }.subscribe { [weak self] newEvent in
+
+            }.disposed(by: disposeBag)
+    }
 }
 

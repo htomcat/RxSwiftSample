@@ -18,6 +18,7 @@
 		F3563CF220A2E94F0030810F /* RxSwiftSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3563CF120A2E94F0030810F /* RxSwiftSampleTests.swift */; };
 		F3563CFD20A2E94F0030810F /* RxSwiftSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3563CFC20A2E94F0030810F /* RxSwiftSampleUITests.swift */; };
 		F35978B420A5806C00791244 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35978B320A5806C00791244 /* ViewModel.swift */; };
+		F37A47C320A72D8E007C57C7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A47C220A72D8E007C57C7 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		F3563CFC20A2E94F0030810F /* RxSwiftSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftSampleUITests.swift; sourceTree = "<group>"; };
 		F3563CFE20A2E94F0030810F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35978B320A5806C00791244 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F37A47C220A72D8E007C57C7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5C60E788D5636106B429F7A /* Pods_RxSwiftSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 				F3563CE320A2E94E0030810F /* Assets.xcassets */,
 				F3563CE520A2E94E0030810F /* LaunchScreen.storyboard */,
 				F3563CE820A2E94F0030810F /* Info.plist */,
+				F37A47C220A72D8E007C57C7 /* Event.swift */,
 			);
 			path = RxSwiftSample;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37A47C320A72D8E007C57C7 /* Event.swift in Sources */,
 				F3563CDF20A2E94D0030810F /* ViewController.swift in Sources */,
 				F35978B420A5806C00791244 /* ViewModel.swift in Sources */,
 				F3563CDD20A2E94D0030810F /* AppDelegate.swift in Sources */,

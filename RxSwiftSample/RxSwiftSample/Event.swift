@@ -10,7 +10,7 @@ import Foundation
 
 struct Event {
     let name: String
-    init(dic: [String: Any]) {
+    init?(dic: [String: Any]) {
         name = dic["name"] as! String
     }
 }

@@ -13,6 +13,7 @@ import RxCocoa
 class ViewController: UIViewController {
     let disposeBag = DisposeBag()
     let viewModel = ViewModel()
+    private let events = BehaviorRelay<[Event]>(value: [])
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
@@ -30,13 +31,12 @@ class ViewController: UIViewController {
     func fetchEvents(repo: String) {
         let reponse = Observable.of(repo)
             .map { urlString -> URL in
-                return URL(string: "https://www.hoge.com/\(urlString)")!
+                return URL(string: "https://api.github.com/repos/\(urlString)/events")!
             }
             .map { url -> URLRequest in
                 return URLRequest(url: url)
             }
             .flatMap { request in
-                
                 return URLSession.shared.rx.response(request: request)
             }
             .share(replay: 1, scope: .whileConnected)
@@ -53,9 +53,11 @@ class ViewController: UIViewController {
                 return object.count > 0
             }.map { object in
                 return object.compactMap(Event.init)
-            }.subscribe { [weak self] newEvent in
-
-            }.disposed(by: disposeBag)
+            }
+            .subscribe(onNext: { [weak self] newEvents in
+                self?.events.accept(newEvents)
+            })
+            .disposed(by: disposeBag)
     }
 }
 

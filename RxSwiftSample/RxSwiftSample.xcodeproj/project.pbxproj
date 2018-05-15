@@ -19,6 +19,7 @@
 		F3563CFD20A2E94F0030810F /* RxSwiftSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3563CFC20A2E94F0030810F /* RxSwiftSampleUITests.swift */; };
 		F35978B420A5806C00791244 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35978B320A5806C00791244 /* ViewModel.swift */; };
 		F37A47C320A72D8E007C57C7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A47C220A72D8E007C57C7 /* Event.swift */; };
+		F3FB275220AAA5DD00BD3F35 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		F3563CFE20A2E94F0030810F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35978B320A5806C00791244 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F37A47C220A72D8E007C57C7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		F5C60E788D5636106B429F7A /* Pods_RxSwiftSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 				F3563CE520A2E94E0030810F /* LaunchScreen.storyboard */,
 				F3563CE820A2E94F0030810F /* Info.plist */,
 				F37A47C220A72D8E007C57C7 /* Event.swift */,
+				F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */,
 			);
 			path = RxSwiftSample;
 			sourceTree = "<group>";
@@ -364,11 +367,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftSample/Pods-RxSwiftSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -407,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F37A47C320A72D8E007C57C7 /* Event.swift in Sources */,
+				F3FB275220AAA5DD00BD3F35 /* GithubAPI.swift in Sources */,
 				F3563CDF20A2E94D0030810F /* ViewController.swift in Sources */,
 				F35978B420A5806C00791244 /* ViewModel.swift in Sources */,
 				F3563CDD20A2E94D0030810F /* AppDelegate.swift in Sources */,

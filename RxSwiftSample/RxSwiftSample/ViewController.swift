@@ -40,18 +40,23 @@ class ViewController: UIViewController {
                 return URLSession.shared.rx.response(request: request)
             }
             .share(replay: 1, scope: .whileConnected)
-        reponse.filter { reponse, _ in
-            return 200...300 ~= reponse.statusCode
-            }.map { _, data -> [[String: Any]] in
+
+        reponse
+            .filter { reponse, _ in
+                return 200...300 ~= reponse.statusCode
+            }
+            .map { _, data -> [[String: Any]] in
                 guard
                     let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
                     let result = jsonObject as? [[String: Any]] else {
                         return []
                 }
                 return result
-            }.filter { object in
+            }
+            .filter { object in
                 return object.count > 0
-            }.map { object in
+            }
+            .map { object in
                 return object.compactMap(Event.init)
             }
             .subscribe(onNext: { [weak self] newEvents in

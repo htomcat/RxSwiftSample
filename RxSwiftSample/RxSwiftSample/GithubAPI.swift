@@ -12,7 +12,7 @@ import RxSwift
 import Alamofire
 
 protocol GithubAPIProtocol {
-    static func events(of repository: String) -> Observable<[String: Any]>
+    static func events<T>(of repository: String) -> Single<T>
 }
 
 struct GithubAPI: GithubAPIProtocol {
@@ -25,12 +25,12 @@ struct GithubAPI: GithubAPIProtocol {
     }
 
 
-    /*
-    static func events(of repository: String) -> Observable<[String : Any]> {
+    static func events<T>(of repository: String) -> Single<T> {
+        return request("", address: .events)
     }
- */
+
     static private func request<T: Any>(_ token: String, address: Address, parameters: [String: String] = [:]) -> Single<T> {
-        return Single.create { single in
+        return Single<T>.create { single in
             var comps = URLComponents(string: address.url.absoluteString)!
             comps.queryItems = parameters.map(URLQueryItem.init)
             let url = try! comps.asURL()
@@ -47,11 +47,14 @@ struct GithubAPI: GithubAPIProtocol {
                     let json = try? JSONSerialization.jsonObject(with: data, options: []) as? T,
                     let result = json else {
                         
+                        single(.error(response.error!))
                         return
                 }
+                single(.success(result))
             }
 
             return Disposables.create {
+                request.cancel()
             }
         }
     }

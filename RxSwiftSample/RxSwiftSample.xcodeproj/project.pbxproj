@@ -19,6 +19,7 @@
 		F3563CFD20A2E94F0030810F /* RxSwiftSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3563CFC20A2E94F0030810F /* RxSwiftSampleUITests.swift */; };
 		F35978B420A5806C00791244 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35978B320A5806C00791244 /* ViewModel.swift */; };
 		F37A47C320A72D8E007C57C7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A47C220A72D8E007C57C7 /* Event.swift */; };
+		F392F1AF20AD841B00E88B10 /* EventsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392F1AE20AD841B00E88B10 /* EventsFetcher.swift */; };
 		F3FB275220AAA5DD00BD3F35 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		F3563CFE20A2E94F0030810F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35978B320A5806C00791244 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F37A47C220A72D8E007C57C7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F392F1AE20AD841B00E88B10 /* EventsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFetcher.swift; sourceTree = "<group>"; };
 		F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		F5C60E788D5636106B429F7A /* Pods_RxSwiftSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 				F3563CE820A2E94F0030810F /* Info.plist */,
 				F37A47C220A72D8E007C57C7 /* Event.swift */,
 				F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */,
+				F392F1AE20AD841B00E88B10 /* EventsFetcher.swift */,
 			);
 			path = RxSwiftSample;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			files = (
 				F37A47C320A72D8E007C57C7 /* Event.swift in Sources */,
 				F3FB275220AAA5DD00BD3F35 /* GithubAPI.swift in Sources */,
+				F392F1AF20AD841B00E88B10 /* EventsFetcher.swift in Sources */,
 				F3563CDF20A2E94D0030810F /* ViewController.swift in Sources */,
 				F35978B420A5806C00791244 /* ViewModel.swift in Sources */,
 				F3563CDD20A2E94D0030810F /* AppDelegate.swift in Sources */,
@@ -591,7 +595,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxSwiftSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = htomcat.RxSwiftSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -606,7 +613,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxSwiftSample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = htomcat.RxSwiftSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -622,7 +632,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxSwiftSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = htomcat.RxSwiftSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -639,7 +653,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxSwiftSampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = htomcat.RxSwiftSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -655,7 +673,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxSwiftSampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = htomcat.RxSwiftSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -671,7 +693,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RxSwiftSampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = htomcat.RxSwiftSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

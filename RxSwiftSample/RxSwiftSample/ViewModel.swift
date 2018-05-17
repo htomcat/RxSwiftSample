@@ -13,7 +13,7 @@ class ViewModel {
     let text = BehaviorRelay<String>(value: "")
     let string: Driver<String>
 
-    init() {
+    init(apiType: GithubAPIProtocol.Type = GithubAPI.self) {
         string = text.map { charactor in
             return charactor
         }

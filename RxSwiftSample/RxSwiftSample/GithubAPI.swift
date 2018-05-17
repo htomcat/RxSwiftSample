@@ -11,24 +11,31 @@ import RxCocoa
 import RxSwift
 import Alamofire
 
+typealias JSONObject = [String: Any]
 protocol GithubAPIProtocol {
     static func events<T>(of repository: String) -> Single<T>
 }
 
 struct GithubAPI: GithubAPIProtocol {
+    // MARK: - API Addresses
     private enum Address: String {
         case events = "/events"
-        private var baseURL: String { return "https://api.github.com/repos/" }
+        private var baseURL: String { return "https://api.github.com/" }
         var url: URL {
             return URL(string: baseURL.appending(rawValue))!
         }
     }
 
+    // MARK: - API errors
+    enum Errors: Error {
+        case requestFailed
+    }
 
     static func events<T>(of repository: String) -> Single<T> {
         return request("", address: .events)
     }
 
+    // MARK: - API Endpoint Requests
     static private func request<T: Any>(_ token: String, address: Address, parameters: [String: String] = [:]) -> Single<T> {
         return Single<T>.create { single in
             var comps = URLComponents(string: address.url.absoluteString)!
@@ -39,7 +46,7 @@ struct GithubAPI: GithubAPIProtocol {
                                             method: .get,
                                             parameters: Parameters(),
                                             encoding: URLEncoding.httpBody,
-                                            headers: ["Authorization": "Bearer \(token)"])
+                                            headers: ["Authorization": "token \(token)"])
             request.responseJSON { response in
                 guard
                     response.error == nil,
@@ -47,7 +54,7 @@ struct GithubAPI: GithubAPIProtocol {
                     let json = try? JSONSerialization.jsonObject(with: data, options: []) as? T,
                     let result = json else {
                         
-                        single(.error(response.error!))
+                        single(.error(Errors.requestFailed))
                         return
                 }
                 single(.success(result))

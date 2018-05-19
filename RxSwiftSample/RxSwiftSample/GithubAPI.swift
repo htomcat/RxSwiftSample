@@ -53,7 +53,7 @@ struct GithubAPI: GithubAPIProtocol {
                     let data = response.data,
                     let json = try? JSONSerialization.jsonObject(with: data, options: []) as? T,
                     let result = json else {
-                        
+
                         single(.error(Errors.requestFailed))
                         return
                 }

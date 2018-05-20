@@ -12,8 +12,9 @@ import RxSwift
 import Alamofire
 
 typealias JSONObject = [String: Any]
+
 protocol GithubAPIProtocol {
-    static func events<T>(of repository: String) -> Single<T>
+    static func events<T>(of repository: String) -> (AccessToken, String) -> Single<T>
 }
 
 struct GithubAPI: GithubAPIProtocol {
@@ -31,8 +32,10 @@ struct GithubAPI: GithubAPIProtocol {
         case requestFailed
     }
 
-    static func events<T>(of repository: String) -> Single<T> {
-        return request("", address: .events)
+    static func events<T>(of repository: String) -> (AccessToken, String) -> Single<T> {
+        return { account, hoge2 in
+            return request("", address: .events)
+        }
     }
 
     // MARK: - API Endpoint Requests

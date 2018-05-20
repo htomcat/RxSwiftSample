@@ -14,7 +14,7 @@ import Alamofire
 typealias JSONObject = [String: Any]
 
 protocol GithubAPIProtocol {
-    static func events<T>(of repository: String) -> (AccessToken, String) -> Single<T>
+    static func events<T>(of repository: String) -> (AccessToken) -> Single<T>
 }
 
 struct GithubAPI: GithubAPIProtocol {
@@ -32,8 +32,8 @@ struct GithubAPI: GithubAPIProtocol {
         case requestFailed
     }
 
-    static func events<T>(of repository: String) -> (AccessToken, String) -> Single<T> {
-        return { account, hoge2 in
+    static func events<T>(of repository: String) -> (AccessToken) -> Single<T> {
+        return { account in
             return request("", address: .events)
         }
     }

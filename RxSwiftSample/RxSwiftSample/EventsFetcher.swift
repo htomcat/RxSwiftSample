@@ -15,6 +15,6 @@ class EventsFetcher {
         self.init(jsonProvider: apiType.events(of: ""))
     }
     
-    private init(jsonProvider: (AccessToken, String) -> Single<[String: Any]>) {
+    private init(jsonProvider: (AccessToken) -> Single<[String: Any]>) {
     }
 }

@@ -12,7 +12,7 @@ import RxCocoa
 
 class ViewController: UIViewController {
     let disposeBag = DisposeBag()
-    let viewModel = ViewModel()
+    private var viewModel: ViewModel!
     private let events = BehaviorRelay<[Event]>(value: [])
 
     @IBOutlet weak var textField: UITextField!
@@ -20,12 +20,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        textField.rx.text.orEmpty
-            .bind(to: viewModel.text)
-            .disposed(by: disposeBag)
-        
-        viewModel.string.drive(label.rx.text).disposed(by: disposeBag)
     }
 
     func fetchEvents(repo: String) {

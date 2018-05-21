@@ -12,6 +12,7 @@ import RxSwift
 import Alamofire
 
 typealias JSONObject = [String: Any]
+typealias ListIdentifier = (username: String, slug: String)
 
 protocol GithubAPIProtocol {
     static func events<T>(of repository: String) -> (AccessToken) -> Single<T>

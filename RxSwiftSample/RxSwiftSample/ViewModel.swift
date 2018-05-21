@@ -11,12 +11,18 @@ import RxCocoa
 
 class ViewModel {
     let text = BehaviorRelay<String>(value: "")
-    let string: Driver<String>
 
-    init(apiType: GithubAPIProtocol.Type = GithubAPI.self) {
-        string = text.map { charactor in
-            return charactor
-        }
-        .asDriver(onErrorJustReturn: "")
+    let account: Driver<GithubAccount.AccountStatus>
+    let list: ListIdentifier
+
+    init(account: Driver<GithubAccount.AccountStatus>,
+         list: ListIdentifier,
+         apiType: GithubAPIProtocol.Type = GithubAPI.self) {
+
+        self.account = account
+        self.list = list
+
+        // fetch and store
+
     }
 }

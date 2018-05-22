@@ -14,12 +14,20 @@ class ViewController: UIViewController {
     let disposeBag = DisposeBag()
     private var viewModel: ViewModel!
     private let events = BehaviorRelay<[Event]>(value: [])
+    private var navigator: Navigator!
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    static func createWith(navigator: Navigator, storyboard: UIStoryboard, viewModel: ViewModel) -> ViewController {
+        let vc = storyboard.instantiateViewController(ofType: ViewController.self)
+        vc.navigator = navigator
+        vc.viewModel = viewModel
+        return vc
     }
 
     func fetchEvents(repo: String) {

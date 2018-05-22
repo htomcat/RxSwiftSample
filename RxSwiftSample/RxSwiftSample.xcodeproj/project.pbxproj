@@ -11,6 +11,7 @@
 		6CCE61E3DAB414F277C58CD5 /* Pods_RxSwiftSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5478667400D25BF6F4B520BE /* Pods_RxSwiftSampleUITests.framework */; };
 		74CA9262E07305DF23492C8E /* Pods_RxSwiftSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8177424BF5A0B173D36AA7 /* Pods_RxSwiftSampleTests.framework */; };
 		F309778A20B25B4000059133 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F309778920B25B4000059133 /* Navigator.swift */; };
+		F32663E720B39FDD00CC63B7 /* Storyboard+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32663E620B39FDD00CC63B7 /* Storyboard+Utility.swift */; };
 		F352817720B1171A00ED16BB /* GithubAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = F352817620B1171A00ED16BB /* GithubAccount.swift */; };
 		F3563CDD20A2E94D0030810F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3563CDC20A2E94D0030810F /* AppDelegate.swift */; };
 		F3563CDF20A2E94D0030810F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3563CDE20A2E94D0030810F /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		B02EC42DA8531F123E121F16 /* Pods-RxSwiftSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftSampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftSampleUITests/Pods-RxSwiftSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EED89FB37637092176B70D46 /* Pods-RxSwiftSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftSampleTests/Pods-RxSwiftSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		F309778920B25B4000059133 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		F32663E620B39FDD00CC63B7 /* Storyboard+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+Utility.swift"; sourceTree = "<group>"; };
 		F352817620B1171A00ED16BB /* GithubAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAccount.swift; sourceTree = "<group>"; };
 		F3563CD920A2E94D0030810F /* RxSwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3563CDC20A2E94D0030810F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				F392F1AE20AD841B00E88B10 /* EventsFetcher.swift */,
 				F352817620B1171A00ED16BB /* GithubAccount.swift */,
 				F309778920B25B4000059133 /* Navigator.swift */,
+				F32663E620B39FDD00CC63B7 /* Storyboard+Utility.swift */,
 			);
 			path = RxSwiftSample;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				F3563CDF20A2E94D0030810F /* ViewController.swift in Sources */,
 				F35978B420A5806C00791244 /* ViewModel.swift in Sources */,
 				F309778A20B25B4000059133 /* Navigator.swift in Sources */,
+				F32663E720B39FDD00CC63B7 /* Storyboard+Utility.swift in Sources */,
 				F352817720B1171A00ED16BB /* GithubAccount.swift in Sources */,
 				F3563CDD20A2E94D0030810F /* AppDelegate.swift in Sources */,
 			);

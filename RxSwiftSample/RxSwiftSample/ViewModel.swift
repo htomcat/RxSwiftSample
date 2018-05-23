@@ -11,6 +11,7 @@ import RxCocoa
 
 class ViewModel {
     let text = BehaviorRelay<String>(value: "")
+    private let fetcher: EventsFetcher
 
     let account: Driver<GithubAccount.AccountStatus>
     let list: ListIdentifier
@@ -23,6 +24,7 @@ class ViewModel {
         self.list = list
 
         // fetch and store
+        fetcher = EventsFetcher(apiType: apiType)
 
     }
 }

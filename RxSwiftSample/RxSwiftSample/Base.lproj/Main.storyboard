@@ -59,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="5f2-ZG-78p" id="Xay-N3-DOZ"/>
+                        <outlet property="tableView" destination="JVO-8P-MZf" id="OI7-wM-lP4"/>
                         <outlet property="textField" destination="y4z-Yv-d6V" id="GID-8z-fFN"/>
                     </connections>
                 </viewController>

@@ -7,10 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Event {
-    let name: String
-    init?(dic: [String: Any]) {
-        name = dic["name"] as! String
+class Event: Object {
+    @objc dynamic var id: Int64 = 0
+    @objc dynamic var name: String = ""
+
+    // MARK: - Meta
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

@@ -8,6 +8,8 @@
 
 import RxSwift
 import RxCocoa
+import RealmSwift
+import RxRealm
 
 class ViewModel {
     let text = BehaviorRelay<String>(value: "")
@@ -15,6 +17,9 @@ class ViewModel {
 
     let account: Driver<GithubAccount.AccountStatus>
     let list: ListIdentifier
+    
+    // MARK: - Output
+    private(set) var events: Observable<(AnyRealmCollection<Event>, RealmChangeset?)>!
 
     init(account: Driver<GithubAccount.AccountStatus>,
          list: ListIdentifier,
@@ -24,7 +29,14 @@ class ViewModel {
         self.list = list
 
         // fetch and store
-        fetcher = EventsFetcher(apiType: apiType)
+        fetcher = EventsFetcher(account: account, list: list, apiType: apiType)
 
+    }
+    private func bindOutput() {
+        //bind events
+        guard let realm = try? Realm() else {
+            return
+        }
+        events = Observable.changeset(from: realm.objects(Event.self))
     }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxRealmDataSources
 
 class ViewController: UIViewController {
     let disposeBag = DisposeBag()

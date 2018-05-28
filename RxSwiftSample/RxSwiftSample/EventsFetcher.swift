@@ -11,6 +11,12 @@ import RxSwift
 import RxCocoa
 
 class EventsFetcher {
+    // MARK: input
+    let paused = BehaviorRelay(value: false)
+
+    // MARK: output
+    let events: Observable<[Event]>
+
     convenience init(account: Driver<GithubAccount.AccountStatus>, list: ListIdentifier, apiType: GithubAPIProtocol.Type) {
         self.init(account: account, jsonProvider: apiType.events(of: ""))
     }
@@ -18,7 +24,7 @@ class EventsFetcher {
         self.init(account: account, jsonProvider: apiType.events(of: repositoryName))
     }
     
-    private init(account: Driver<GithubAccount.AccountStatus>, jsonProvider: (AccessToken) -> Single<[String: Any]>) {
+    private init(account: Driver<GithubAccount.AccountStatus>, jsonProvider: @escaping (AccessToken) -> Single<[JSONObject]>) {
         let currentAccount: Observable<AccessToken> = account
             .filter { account in
                 switch account {
@@ -35,5 +41,11 @@ class EventsFetcher {
                 
             }
             .asObservable()
+        
+        let reachableTimerWithAccount = Observable.combineLatest(currentAccount, paused) { account, paused in
+            return !paused ? account : nil
+            }.filter { $0 != nil }.map { $0!}
+        
+        events = reachableTimerWithAccount.flatMapLatest(jsonProvider).map(Event.decode)
     }
 }

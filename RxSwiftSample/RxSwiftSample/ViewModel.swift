@@ -14,6 +14,7 @@ import RxRealm
 class ViewModel {
     let text = BehaviorRelay<String>(value: "")
     private let fetcher: EventsFetcher
+    private let bag = DisposeBag()
 
     let account: Driver<GithubAccount.AccountStatus>
     let list: ListIdentifier

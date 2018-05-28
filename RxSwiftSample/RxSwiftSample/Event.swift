@@ -17,4 +17,8 @@ class Event: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+
+    static func decode(events: [JSONObject]) -> [Event] {
+        return [Event]()
+    }
 }

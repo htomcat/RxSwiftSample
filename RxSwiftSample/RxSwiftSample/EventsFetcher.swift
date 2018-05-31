@@ -15,7 +15,7 @@ class EventsFetcher {
     let paused = BehaviorRelay(value: false)
 
     // MARK: output
-    let events: Observable<[Event]>
+    let events: Observable<Event>
 
     convenience init(account: Driver<GithubAccount.AccountStatus>, list: ListIdentifier, apiType: GithubAPIProtocol.Type) {
         self.init(account: account, jsonProvider: apiType.events(of: ""))
@@ -46,6 +46,6 @@ class EventsFetcher {
             return !paused ? account : nil
             }.filter { $0 != nil }.map { $0!}
         
-        events = reachableTimerWithAccount.flatMapLatest(jsonProvider).map(Event.decode)
+        events = reachableTimerWithAccount.flatMapLatest(jsonProvider).map(Event.init)
     }
 }

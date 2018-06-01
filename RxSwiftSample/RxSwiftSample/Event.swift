@@ -27,4 +27,8 @@ class Event: Object, Mappable {
     override static func primaryKey() -> String? {
         return "id"
     }
+
+    static func transform(json: [JSONObject]) -> Event {
+        return Event()
+    }
 }

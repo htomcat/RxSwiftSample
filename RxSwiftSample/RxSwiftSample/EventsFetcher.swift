@@ -46,6 +46,6 @@ class EventsFetcher {
             return !paused ? account : nil
             }.filter { $0 != nil }.map { $0!}
         
-        events = reachableTimerWithAccount.flatMapLatest(jsonProvider).map(Event.init)
+        events = reachableTimerWithAccount.flatMapLatest(jsonProvider).map(Event.transform(json:))
     }
 }

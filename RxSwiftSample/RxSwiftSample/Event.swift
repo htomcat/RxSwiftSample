@@ -29,6 +29,6 @@ class Event: Object, Mappable {
     }
 
     static func transform(json: [JSONObject]) -> Event {
-        return Event()
+        return Event(value: json)
     }
 }

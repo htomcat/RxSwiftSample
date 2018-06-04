@@ -24,7 +24,7 @@ class EventsFetcher {
         self.init(account: account, jsonProvider: apiType.events(of: repositoryName))
     }
     
-    private init(account: Driver<GithubAccount.AccountStatus>, jsonProvider: @escaping (AccessToken) -> Single<[JSONObject]>) {
+    private init(account: Driver<GithubAccount.AccountStatus>, jsonProvider: @escaping (AccessToken) -> Single<JSONObject>) {
         let currentAccount: Observable<AccessToken> = account
             .filter { account in
                 switch account {

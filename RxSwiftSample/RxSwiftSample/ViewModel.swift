@@ -31,7 +31,12 @@ class ViewModel {
 
         // fetch and store
         fetcher = EventsFetcher(account: account, list: list, apiType: apiType)
-
+        
+        bindOutput()
+        
+        fetcher.events
+            .subscribe(Realm.rx.add(update: true))
+            .disposed(by: bag)
     }
     private func bindOutput() {
         //bind events

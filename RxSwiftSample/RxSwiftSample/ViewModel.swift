@@ -21,6 +21,7 @@ class ViewModel {
     
     // MARK: - Output
     private(set) var events: Observable<(AnyRealmCollection<Event>, RealmChangeset?)>!
+    private(set) var loggedIn: Driver<Bool>!
 
     init(account: Driver<GithubAccount.AccountStatus>,
          list: ListIdentifier,
@@ -44,5 +45,14 @@ class ViewModel {
             return
         }
         events = Observable.changeset(from: realm.objects(Event.self))
+
+        loggedIn = account
+            .map { status in
+                switch status {
+                case .unavailable: return false
+                case .authorized: return true
+                }
+            }
+            .asDriver(onErrorJustReturn: false)
     }
 }

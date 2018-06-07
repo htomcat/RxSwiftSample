@@ -23,6 +23,7 @@
 		F35978B420A5806C00791244 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35978B320A5806C00791244 /* ViewModel.swift */; };
 		F37A47C320A72D8E007C57C7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A47C220A72D8E007C57C7 /* Event.swift */; };
 		F392F1AF20AD841B00E88B10 /* EventsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F392F1AE20AD841B00E88B10 /* EventsFetcher.swift */; };
+		F3F0995020C8B86C0019099F /* EventCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F0994F20C8B86C0019099F /* EventCellView.swift */; };
 		F3FB275220AAA5DD00BD3F35 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		F35978B320A5806C00791244 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F37A47C220A72D8E007C57C7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F392F1AE20AD841B00E88B10 /* EventsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFetcher.swift; sourceTree = "<group>"; };
+		F3F0994F20C8B86C0019099F /* EventCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellView.swift; sourceTree = "<group>"; };
 		F3FB275120AAA5DD00BD3F35 /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		F5C60E788D5636106B429F7A /* Pods_RxSwiftSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 				F352817620B1171A00ED16BB /* GithubAccount.swift */,
 				F309778920B25B4000059133 /* Navigator.swift */,
 				F32663E620B39FDD00CC63B7 /* Storyboard+Utility.swift */,
+				F3F0994F20C8B86C0019099F /* EventCellView.swift */,
 			);
 			path = RxSwiftSample;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				F35978B420A5806C00791244 /* ViewModel.swift in Sources */,
 				F309778A20B25B4000059133 /* Navigator.swift in Sources */,
 				F32663E720B39FDD00CC63B7 /* Storyboard+Utility.swift in Sources */,
+				F3F0995020C8B86C0019099F /* EventCellView.swift in Sources */,
 				F352817720B1171A00ED16BB /* GithubAccount.swift in Sources */,
 				F3563CDD20A2E94D0030810F /* AppDelegate.swift in Sources */,
 			);

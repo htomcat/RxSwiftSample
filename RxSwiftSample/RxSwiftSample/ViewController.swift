@@ -12,7 +12,7 @@ import RxCocoa
 import RxRealmDataSources
 
 class ViewController: UIViewController {
-    let disposeBag = DisposeBag()
+    let bag = DisposeBag()
     private var viewModel: ViewModel!
     private let events = BehaviorRelay<[Event]>(value: [])
     private var navigator: Navigator!
@@ -37,6 +37,12 @@ class ViewController: UIViewController {
     }
     
     func bindUI() {
+        let dataSource = RxTableViewRealmDataSource<Event>(cellIdentifier: "EventCellView", cellType: EventCellView.self) { cell, _, event in
+            cell.update(with: event)
+        }
+        viewModel.events
+            .bind(to: tableView.rx.realmChanges(dataSource))
+            .disposed(by: bag)
     }
     
 }

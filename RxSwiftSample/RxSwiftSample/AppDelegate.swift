@@ -12,10 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let navigator = Navigator()
+    let account = GithubAccount().default
+    let list = (username: "", slug: "")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GithubAccount.set(key: "placeholder",
+                          secret: "placeholder")
+        let navigation = window!.rootViewController!
+        navigator.show(segue: .listEvents(account, list), sender: navigation)
         return true
     }
 

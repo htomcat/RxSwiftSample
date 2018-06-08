@@ -13,6 +13,14 @@ import RxSwift
 typealias AccessToken = String
 
 struct GithubAccount {
+    
+    static private var key: String!
+    static private var secret: String!
+    static func set(key: String, secret: String) {
+        self.key = key
+        self.secret = secret
+    }
+
     // logged or not
     enum AccountStatus {
         case unavailable

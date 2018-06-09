@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         GithubAccount.set(key: "placeholder",
                           secret: "placeholder")
-        let navigation = window!.rootViewController!
+        let navigation = window?.rootViewController as! UINavigationController
         navigator.show(segue: .listEvents(account, list), sender: navigation)
         return true
     }

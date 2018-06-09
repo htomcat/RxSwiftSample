@@ -27,6 +27,7 @@ class Navigator {
     private func show(target: UIViewController, sender: UIViewController) {
         if let nav = sender as? UINavigationController {
             nav.pushViewController(target, animated: false)
+            return
         }
         
         if let nav = sender.navigationController {

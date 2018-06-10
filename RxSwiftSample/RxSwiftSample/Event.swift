@@ -11,12 +11,14 @@ import RealmSwift
 import ObjectMapper
 
 class Event: Object, Mappable {
-    @objc dynamic var id: Int64 = 0
-    @objc dynamic var name: String = ""
+    @objc dynamic var id: String = ""
+    @objc dynamic var type: String = ""
+    @objc dynamic var time: String = ""
 
     func mapping(map: Map) {
         id <- map["id"]
-        name <- map["name"]
+        type <- map["type"]
+        time <- map["time"]
     }
     
     required convenience init?(map: Map) {

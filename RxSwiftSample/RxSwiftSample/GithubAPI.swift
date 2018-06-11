@@ -15,13 +15,13 @@ typealias JSONObject = [String: Any]
 typealias ListIdentifier = (username: String, slug: String)
 
 protocol GithubAPIProtocol {
-    static func events<T>(of repository: String) -> (AccessToken) -> Single<T>
+    static func repository<T>(of repository: String) -> (AccessToken) -> Single<T>
 }
 
 struct GithubAPI: GithubAPIProtocol {
     // MARK: - API Addresses
     private enum Address: String {
-        case events = "/events"
+        case repos = "/repos"
         private var baseURL: String { return "https://api.github.com/" }
         var url: URL {
             return URL(string: baseURL.appending(rawValue))!
@@ -33,9 +33,9 @@ struct GithubAPI: GithubAPIProtocol {
         case requestFailed
     }
 
-    static func events<T>(of repository: String) -> (AccessToken) -> Single<T> {
+    static func repository<T>(of repository: String) -> (AccessToken) -> Single<T> {
         return { account in
-            return request("", address: .events)
+            return request("", address: .repos)
         }
     }
 

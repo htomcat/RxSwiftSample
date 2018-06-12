@@ -12,10 +12,11 @@ import RxSwift
 import Alamofire
 
 typealias JSONObject = [String: Any]
-typealias ListIdentifier = (username: String, slug: String)
+typealias ListIdentifier = (owner: String, repo: String)
 
 protocol GithubAPIProtocol {
-    static func repository<T>(of repository: String) -> (AccessToken) -> Single<T>
+    static func repository<T>(of owner: String) -> (AccessToken) -> Single<T>
+    static func repository<T>(of list: ListIdentifier) -> (AccessToken) -> Single<T>
 }
 
 struct GithubAPI: GithubAPIProtocol {
@@ -33,14 +34,20 @@ struct GithubAPI: GithubAPIProtocol {
         case requestFailed
     }
 
-    static func repository<T>(of repository: String) -> (AccessToken) -> Single<T> {
+    static func repository<T>(of owner: String) -> (AccessToken) -> Single<T> {
         return { account in
             return request("", address: .repos)
         }
     }
+    
+    static func repository<T>(of list: ListIdentifier) -> (AccessToken) -> Single<T> {
+        return { account in
+            return request(account, address: .repos)
+        }
+    }
 
     // MARK: - API Endpoint Requests
-    static private func request<T: Any>(_ token: String, address: Address, parameters: [String: String] = [:]) -> Single<T> {
+    static private func request<T: Any>(_ token: AccessToken, address: Address, parameters: [String: String] = [:]) -> Single<T> {
         return Single<T>.create { single in
             var comps = URLComponents(string: address.url.absoluteString)!
             comps.queryItems = parameters.map(URLQueryItem.init)

@@ -18,12 +18,9 @@ class EventsFetcher {
     let events: Observable<Event>
 
     convenience init(account: Driver<GithubAccount.AccountStatus>, list: ListIdentifier, apiType: GithubAPIProtocol.Type) {
-        self.init(account: account, jsonProvider: apiType.repository(of: ""))
+        self.init(account: account, jsonProvider: apiType.repository(of: list))
     }
-    convenience init(account: Driver<GithubAccount.AccountStatus>, repositoryName: String, apiType: GithubAPIProtocol.Type) {
-        self.init(account: account, jsonProvider: apiType.repository(of: ""))
-    }
-    
+
     private init(account: Driver<GithubAccount.AccountStatus>, jsonProvider: @escaping (AccessToken) -> Single<JSONObject>) {
         let currentAccount: Observable<AccessToken> = account
             .filter { account in

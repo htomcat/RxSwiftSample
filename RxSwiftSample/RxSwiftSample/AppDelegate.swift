@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let navigator = Navigator()
     let account = GithubAccount().default
-    let list = (username: "", slug: "")
+    let list = (owner: "htomcat", repo: "RxSwiftSample")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

@@ -42,7 +42,8 @@ struct GithubAPI: GithubAPIProtocol {
     // MARK: - API Endpoint Requests
     static private func request<T: Any>(_ token: AccessToken, address: Address, list:ListIdentifier, parameters: [String: String] = [:]) -> Single<T> {
         return Single<T>.create { single in
-            var comps = URLComponents(string: address.url.absoluteString + "/" + list.owner + "/" + list.repo)!
+            var comps = URLComponents(string: address.url.absoluteString)!
+            comps.path = "/" + list.owner + "/" + list.repo
             comps.queryItems = parameters.map(URLQueryItem.init)
             let url = try! comps.asURL()
 

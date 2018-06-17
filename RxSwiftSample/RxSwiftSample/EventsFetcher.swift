@@ -38,11 +38,13 @@ class EventsFetcher {
                 
             }
             .asObservable()
-        
+
         let reachableTimerWithAccount = Observable.combineLatest(currentAccount, paused) { account, paused in
             return !paused ? account : nil
-            }.filter { $0 != nil }.map { $0!}
-        
-        events = reachableTimerWithAccount.flatMapLatest(jsonProvider).map(Event.transform(json:))
+            }.filter { $0 != nil }.map { $0! }
+        events = reachableTimerWithAccount
+            .debug()
+            .flatMapLatest(jsonProvider)
+            .map(Event.transform(json:))
     }
 }
